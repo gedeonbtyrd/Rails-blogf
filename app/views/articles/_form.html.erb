@@ -1,0 +1,40 @@
+
+
+
+    <%= form_with model: article do |form| %>
+    <div class= "wrap">
+    <div class= "wrap1">
+
+      <div class= "status">
+        <%= form.label :status %><br>
+        <%= form.select :status, ['public', 'private', 'archived'], selected: 'public' %>
+      </div>
+
+        <div class="title">
+          <%= form.label :title %><br>
+          <%= form.text_field :title %>
+          <% article.errors.full_messages_for(:title).each do |message| %>
+            
+            <div class="msg">
+              <%= message %>
+            </div>
+
+          <% end %>
+        </div>
+
+        <div class="body-con">
+          <%= form.label :body %><br>
+          <%= form.text_area :body %><br>
+          <% article.errors.full_messages_for(:body).each do |message| %>
+            <div><%= message %></div>
+          <% end %>
+        </div>
+
+        <div class="btn">
+          <%= form.submit %>
+        </div>
+      </div>
+      </div>
+    <% end %>
+
+

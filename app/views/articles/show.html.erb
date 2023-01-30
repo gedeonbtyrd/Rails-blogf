@@ -1,0 +1,36 @@
+
+
+
+<br>
+<br>
+<div class= "main">
+  <div class= "child">
+    <div class= "show-title">
+        <h1>Title: <%= @article.title %></h1>
+          <div class= "show-con">
+            <p><b>Article: </b><%= @article.body %></p>
+          </div>
+      <div class= "btn-down">
+        <div class="edit"><%= link_to "Edit", edit_article_path(@article), class: "btn btn-outline-primary" %></div>
+        <br>
+        <div class="del"><%= link_to "Delete Article", article_path(@article), data: {
+                          turbo_method: :delete,
+                          turbo_confirm: "Are you sure?"
+                        }, class: "btn btn-outline-danger" %></div>
+      </div>
+    </div>
+    <br>
+    <div class= "comment">
+
+      <h4>- Comments -</h4>
+      <%= render @article.comments %>
+    </div>
+
+    <div class= "commsent">
+      <h5>Add a comment:</h5>
+      <%= render 'comments/form' %>
+    </div>
+
+
+  </div>
+</div>
